@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1rvjca1u4gro"]
+
+[ext_resource type="PackedScene" uid="uid://bh0y15ybfbtao" path="res://Prefabs/player_character_body_2d.tscn" id="1_jfqjx"]
+[ext_resource type="PackedScene" uid="uid://diojqy8jr0dkq" path="res://Prefabs/proc_gen_2d.tscn" id="3_l0svh"]
+
+[node name="World" type="Node2D"]
+
+[node name="ProcGen2D" parent="." instance=ExtResource("3_l0svh")]
+
+[node name="Player" parent="." instance=ExtResource("1_jfqjx")]
+
+[connection signal="pulse_global_position" from="Player" to="ProcGen2D" method="try_create_terrain"]
